@@ -33,8 +33,7 @@ if [ $? == 0 ]; then
     echo ""
     echo "Here is the result of execution."
     echo ""
-    pwd
-    time $outdir/a.out --ponythreads $threads
+    $outdir/a.out --ponythreads $threads
     echo "</content>"
     echo "</printonconsole>"
     echo "</eicommands>"
