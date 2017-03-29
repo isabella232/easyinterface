@@ -130,11 +130,11 @@ var _ei = {
   },
   debug: true,
   outline: true,
-  file_ext: ".abs",
+  file_ext: ".enc",
   pprefix: "-",
   outline: {
     server: "",
-    app: "absoutline"
+    app: "encoreoutline"
   },
   inlineSetting:{
     active: !false
