@@ -632,5 +632,26 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     modeProps: {fold: ["brace", "include"]}
   });
 
+  def("text/encore", {
+    name: "clike",
+    keywords: words("as and async await break by case chain class" +
+		    " def do else end eos for foreach fun get getNext" +
+		    " hiding if import in join let liftf liftv match" +
+		    " module new not or passive print println qualified" +
+		    " repeat require stream suspend then this" +
+		    " trait typedef unless val var when where while" +
+		    " with yield" +
+                    ""),
+      types: words("bool char int uint unit"),
+    blockKeywords: words("trait case class else for foreach then switch try while end"),
+    defKeywords: words("def trait local class"),
+    typeFirstDefinitions: false,
+    indentStatements: true,
+    atoms: words("true false null"),
+    hooks: {"#": cppHook},
+    modeProps: {fold: ["brace", "include"]}
+  });
+
 });
 
+ 
