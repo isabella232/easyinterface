@@ -7,14 +7,15 @@ files=$(getparam "files")
 threads=$(getparam "threadselect")
 optimlevel=$(getparam "optimlevel")
 outdir=$execroot/_ei_tmp
-export HOME=/Users/einar
+export HOME=/Users/kikofernandezreyes
 
 echo "<eiout>"
 echo "<eicommands>"
 
+
 # COMPILE
-# /Users/einar/git/encore/release/encorec $files -o $outdir/a.out --verbose > $outdir/stdout 
-/Users/einar/git/encore/release/encorec $files -o $outdir/a.out -O$optimlevel  &> $outdir/err 
+# /Users/einar/git/encore/release/encorec $files -o $outdir/a.out --verbose > $outdir/stdout
+# /Users/kikofernandezreyes/Code/encore/release/encorec $files -o $outdir/a.out -O$optimlevel  &> $outdir/err
 
 # RUN OR PRINT ERROR IF COMPILATION FAILED
 if [ $? == 0 ]; then
