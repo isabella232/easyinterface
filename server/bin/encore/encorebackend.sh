@@ -15,7 +15,7 @@ echo "<eicommands>"
 
 # COMPILE
 # /Users/einar/git/encore/release/encorec $files -o $outdir/a.out --verbose > $outdir/stdout
-# /Users/kikofernandezreyes/Code/encore/release/encorec $files -o $outdir/a.out -O$optimlevel  &> $outdir/err
+/Users/kikofernandezreyes/Code/encore/release/encorec $files -o $outdir/a.out -O$optimlevel  &> $outdir/err
 
 # RUN OR PRINT ERROR IF COMPILATION FAILED
 if [ $? == 0 ]; then
