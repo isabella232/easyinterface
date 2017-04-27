@@ -15,7 +15,7 @@ echo "<eicommands>"
 
 # COMPILE
 # /Users/einar/git/encore/release/encorec $files -o $outdir/a.out --verbose > $outdir/stdout
-/Users/kikofernandezreyes/Code/encore/release/encorec $files -o $outdir/a.out -O$optimlevel  &> $outdir/err
+$HOME/Code/encore/release/encorec $files -o $outdir/a.out -O$optimlevel &> $outdir/err
 
 # RUN OR PRINT ERROR IF COMPILATION FAILED
 if [ $? == 0 ]; then
@@ -35,6 +35,14 @@ if [ $? == 0 ]; then
     echo "Here is the result of execution."
     echo ""
     $outdir/a.out --ponythreads $threads
+
+    # use lines below if we need to time the program
+    # (these lines need to be tested before production)
+    #
+    # time -o $outdir/output.txt $outdir/a.out --ponythreads $threads
+    # cat $outdir/output.txt
+    #
+
     echo "</content>"
     echo "</printonconsole>"
     echo "</eicommands>"
