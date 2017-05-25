@@ -7,15 +7,19 @@ files=$(getparam "files")
 threads=$(getparam "threadselect")
 optimlevel=$(getparam "optimlevel")
 outdir=$execroot/_ei_tmp
-export HOME=/Users/kikofernandezreyes
+export HOME=/home/kiko
 
 echo "<eiout>"
 echo "<eicommands>"
 
 
 # COMPILE
-# /Users/einar/git/encore/release/encorec $files -o $outdir/a.out --verbose > $outdir/stdout
-$HOME/Code/encore/release/encorec $files -o $outdir/a.out -O$optimlevel &> $outdir/err
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
+filename=$(data +%s).out
+$HOME/encore/release/encorec $files -o $outdir/$filename -O$optimlevel &> $outdir/err
 
 # RUN OR PRINT ERROR IF COMPILATION FAILED
 if [ $? == 0 ]; then
@@ -34,7 +38,13 @@ if [ $? == 0 ]; then
     echo ""
     echo "Here is the result of execution."
     echo ""
-    $outdir/a.out --ponythreads $threads
+    newgrp lxd
+    lxc file push $outdir/$filename my-ubuntu/tmp/ > $outdir/$filename.result 2>&1
+    # lxc exec my-ubuntu -- /tmp/$filename
+    # lxc exec my-ubuntu -- ./tmp/$filename --ponythreads $threads > $outdir/$filename.result 2>&1
+    # lxc exec my-ubuntu -- rm /tmp/$filename
+    cat $outdir/$filename.result
+    # $outdir/$filename --ponythreads $threads
 
     # use lines below if we need to time the program
     # (these lines need to be tested before production)
