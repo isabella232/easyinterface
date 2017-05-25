@@ -38,13 +38,13 @@ if [ $? == 0 ]; then
     echo ""
     echo "Here is the result of execution."
     echo ""
-    newgrp lxd
-    lxc file push $outdir/$filename my-ubuntu/tmp/ > $outdir/$filename.result 2>&1
+    # newgrp lxd
+    # lxc file push $outdir/$filename my-ubuntu/tmp/ > $outdir/$filename.result 2>&1
     # lxc exec my-ubuntu -- /tmp/$filename
     # lxc exec my-ubuntu -- ./tmp/$filename --ponythreads $threads > $outdir/$filename.result 2>&1
     # lxc exec my-ubuntu -- rm /tmp/$filename
-    cat $outdir/$filename.result
-    # $outdir/$filename --ponythreads $threads
+    # cat $outdir/$filename.result
+    $outdir/$filename --ponythreads $threads
 
     # use lines below if we need to time the program
     # (these lines need to be tested before production)
